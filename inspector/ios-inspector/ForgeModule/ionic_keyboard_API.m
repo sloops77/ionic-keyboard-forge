@@ -11,9 +11,15 @@
 }
 
 + (void) hideKeyboardAccessoryBar:(ForgeTask*)task val:(NSNumber *)val {
-    IonicKeyboard* ionicKeyboard = [IonicKeyboard getIonicKeyboardWithWebView:(UIWebView *) [IonicForgeUtil getView] AndViewController:[[ForgeApp sharedApp] viewController]];
+    IonicKeyboard *ionicKeyboard = [IonicKeyboard getIonicKeyboardWithWebView:(UIWebView *) [IonicForgeUtil getView] AndViewController:[[ForgeApp sharedApp] viewController]];
     ionicKeyboard.hideKeyboardAccessoryBar = [val boolValue];
     [task success:@"Keyboard accessory bar changed"];
+}
+
++ (void) isKeyboardVisible:(ForgeTask*)task {
+    IonicKeyboard* ionicKeyboard = [IonicKeyboard getIonicKeyboardWithWebView:(UIWebView *) [IonicForgeUtil getView] AndViewController:[[ForgeApp sharedApp] viewController]];
+
+    [task success:[NSNumber numberWithBool:ionicKeyboard.keyboardVisible]];
 }
 
 + (void)close:(ForgeTask*)task {

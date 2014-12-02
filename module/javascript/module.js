@@ -8,6 +8,10 @@ forge.ionic_keyboard = {
         forge.internal.call('ionic_keyboard.hideKeyboardAccessoryBar', {val: hide}, success, error);
     },
 
+    isKeyboardVisible: function(success, error) {
+        forge.internal.call('ionic_keyboard.isKeyboardVisible', null, success, error);
+    },
+
     close: function(success, error) {
         forge.internal.call('ionic_keyboard.close', null, success, error);
     },

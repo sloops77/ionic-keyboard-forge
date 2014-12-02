@@ -22,6 +22,16 @@ asyncTest("Attempt to hide the accessory bar", 1, function() {
         start();
     });
 });
+//
+asyncTest("Find Keyboard state", 1, function() {
+    forge.ionic_keyboard.isKeyboardVisible(function (isVisible) {
+        equal(isVisible, 0, 'expected keyboard to be not shown')
+        start();
+    }, function () {
+        ok(false, "Expected success");
+        start();
+    });
+});
 
 asyncTest("Attempt to close the keyboard", 1, function() {
     forge.ionic_keyboard.close(function () {
