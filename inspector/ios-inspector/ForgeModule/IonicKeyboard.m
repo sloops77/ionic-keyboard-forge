@@ -34,31 +34,21 @@ static IonicKeyboard* ionicKeyboard = Nil;
                                             object:nil
                                              queue:[NSOperationQueue mainQueue]
                                         usingBlock:^(NSNotification* notification) {
-                                            
                                             CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
                                             keyboardFrame = [_viewController.view convertRect:keyboardFrame fromView:nil];
-                                            
-                                            NSString* keyboardHeight = [@(keyboardFrame.size.height) stringValue];
+
+                                            NSNumber* keyboardHeight = @(keyboardFrame.size.height);
                                             [[ForgeApp sharedApp] event:@"native.keyboardshow" withParam:@{@"keyboardHeight":  keyboardHeight}];
                                             _keyboardVisible = YES;
-                                            
-//                                            [weakSelf.commandDelegate evalJs:[NSString stringWithFormat:@"cordova.plugins.Keyboard.isVisible = true; cordova.fireWindowEvent('native.keyboardshow', { 'keyboardHeight': %@ }); ", [@(keyboardFrame.size.height) stringValue]]];
-//                                            
-//                                            //deprecated
-//                                            [weakSelf.commandDelegate evalJs:[NSString stringWithFormat:@"cordova.fireWindowEvent('native.showkeyboard', { 'keyboardHeight': %@ }); ", [@(keyboardFrame.size.height) stringValue]]];
                                         }];
     
     _keyboardHideObserver = [nc addObserverForName:UIKeyboardWillHideNotification
                                             object:nil
                                              queue:[NSOperationQueue mainQueue]
                                         usingBlock:^(NSNotification* notification) {
+
                                             [[ForgeApp sharedApp] event:@"native.keyboardhide" withParam:nil];
                                             _keyboardVisible = NO;
-                                             
-//                                            [weakSelf.commandDelegate evalJs:@"cordova.plugins.Keyboard.isVisible = false; cordova.fireWindowEvent('native.keyboardhide'); "];
-//                                            
-//                                            //deprecated
-//                                            [weakSelf.commandDelegate evalJs:@"cordova.fireWindowEvent('native.hidekeyboard'); "];
                                         }];
     return self;
 }
@@ -105,7 +95,7 @@ static IonicKeyboard* ionicKeyboard = Nil;
 /* ------------------------------------------------------------- */
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [scrollView setContentOffset: CGPointZero];
+    [scrollView setContentOffset: CGPointMake(0, -scrollView.contentInset.top)];
 }
 
 /* ------------------------------------------------------------- */

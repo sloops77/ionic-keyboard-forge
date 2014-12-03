@@ -14,14 +14,31 @@ forge.ionic_keyboard = {
 
     close: function(success, error) {
         forge.internal.call('ionic_keyboard.close', null, success, error);
-    },
-
-    showAlert: function (text, success, error) {
-        forge.internal.call('ionic_keyboard.showAlert', {text: text}, success, error);
     }
+};
+//
+//borrowed from CORDOVA
+forge.ionic__createEvent = function(type, data) {
+    var event = document.createEvent('Events');
+    event.initEvent(type, false, false);
+    if (data) {
+        for (var i in data) {
+            if (data.hasOwnProperty(i)) {
+                event[i] = data[i];
+            }
+        }
+    }
+    return event;
 };
 
 // Register for our native event
-forge.internal.addEventListener("ionic_keyboard.resume", function () {
-	alert("Welcome back!");
+forge.internal.addEventListener("native.keyboardshow", function (params) {
+    forge.logging.log("native.keyboardshow: " + JSON.stringify(params));
+    window.dispatchEvent(forge.ionic__createEvent('native.keyboardshow', params));
 });
+
+forge.internal.addEventListener("native.keyboardhide", function (params) {
+    forge.logging.log("native.keyboardhide: " + JSON.stringify(params));
+    window.dispatchEvent(forge.ionic__createEvent('native.keyboardhide', params));
+});
+

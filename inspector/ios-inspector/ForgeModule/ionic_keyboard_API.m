@@ -27,18 +27,4 @@
     [task success:nil];
 }
 
-+ (void)showAlert:(ForgeTask*)task text:(NSString *)text {
-	if ([text length] == 0) {
-		[task error:@"You must enter a message"];
-		return;
-	}
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
-													message:text
-												   delegate:nil
-										  cancelButtonTitle:@"OK"
-										  otherButtonTitles:nil];
-	[alert show];
-	[task success:nil];
-}
-
 @end
