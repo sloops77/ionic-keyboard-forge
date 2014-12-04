@@ -17,10 +17,10 @@ Currently this module has not been approved by Trigger.io. To use it, you need t
 Methods
 -------
 
-- forge.ionic_keyboard.hideKeyboardAccessoryBar
-- forge.ionic_keyboard.close
-- forge.ionic_keyboard.disableScroll
-- forge.ionic_keyboard.isVisible
+- `forge.ionic_keyboard.hideKeyboardAccessoryBar`
+- `forge.ionic_keyboard.close`
+- `forge.ionic_keyboard.disableScroll`
+- `forge.ionic_keyboard.isVisible`
 
 Events
 --------
