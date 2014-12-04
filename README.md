@@ -8,7 +8,11 @@ Keyboard
 
 The `ionic-keyboard-forge` module provides functions to make interacting with the keyboard easier, and fires events to indicate that the keyboard will hide/show.
 
-Add it by uploading a private module using trigger.io
+Currently this module has not been approved by Trigger.io. To use it, you need to manage it as a private module:
+* Git clone the code
+* Add it as a module to your project
+* Upload it using the trigger.io interface
+* Switch to your main application, include it as a private module with the uploaded version number
 
 Methods
 -------
