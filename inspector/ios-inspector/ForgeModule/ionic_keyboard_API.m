@@ -16,14 +16,13 @@
     [task success:@"Keyboard accessory bar changed"];
 }
 
-+ (void) isKeyboardVisible:(ForgeTask*)task {
-    IonicKeyboard* ionicKeyboard = [IonicKeyboard getIonicKeyboardWithWebView:(UIWebView *) [IonicForgeUtil getView] AndViewController:[[ForgeApp sharedApp] viewController]];
-
-    [task success:[NSNumber numberWithBool:ionicKeyboard.keyboardVisible]];
-}
-
 + (void)close:(ForgeTask*)task {
     [[IonicForgeUtil getView] endEditing:YES];
+    [task success:nil];
+}
+
++ (void)show:(ForgeTask*)task {
+    NSLog(@"Showing keyboard not supported in iOS due to platform limitations.");
     [task success:nil];
 }
 

@@ -3,7 +3,6 @@
 
 @implementation IonicKeyboard
 
-@synthesize keyboardVisible = _keyboardVisible;
 @synthesize hideKeyboardAccessoryBar = _hideKeyboardAccessoryBar;
 @synthesize disableScroll = _disableScroll;
 //@synthesize styleDark = _styleDark;
@@ -27,8 +26,6 @@ static IonicKeyboard* ionicKeyboard = Nil;
     //set defaults
     self.hideKeyboardAccessoryBar = NO;
     self.disableScroll = NO;
-    _keyboardVisible = NO;
-    //self.styleDark = NO;
     
     _keyboardShowObserver = [nc addObserverForName:UIKeyboardWillShowNotification
                                             object:nil
@@ -38,8 +35,8 @@ static IonicKeyboard* ionicKeyboard = Nil;
                                             keyboardFrame = [_viewController.view convertRect:keyboardFrame fromView:nil];
 
                                             NSNumber* keyboardHeight = @(keyboardFrame.size.height);
-                                            [[ForgeApp sharedApp] event:@"native.keyboardshow" withParam:@{@"keyboardHeight":  keyboardHeight}];
-                                            _keyboardVisible = YES;
+                                            [[ForgeApp sharedApp] event:@"setProperty" withParam:@{@"name":  @"forge.ionic_keyboard.isVisible", @"value": [NSNumber numberWithBool:YES]}];
+                                            [[ForgeApp sharedApp] event:@"fireWindowEvent" withParam:@{@"eventType": @"native.keyboardshow", @"keyboardHeight":  keyboardHeight}];
                                         }];
     
     _keyboardHideObserver = [nc addObserverForName:UIKeyboardWillHideNotification
@@ -47,8 +44,8 @@ static IonicKeyboard* ionicKeyboard = Nil;
                                              queue:[NSOperationQueue mainQueue]
                                         usingBlock:^(NSNotification* notification) {
 
-                                            [[ForgeApp sharedApp] event:@"native.keyboardhide" withParam:nil];
-                                            _keyboardVisible = NO;
+                                            [[ForgeApp sharedApp] event:@"setProperty" withParam:@{@"name":  @"forge.ionic_keyboard.isVisible", @"value": [NSNumber numberWithBool:NO]}];
+                                            [[ForgeApp sharedApp] event:@"fireWindowEvent" withParam:@{@"eventType":@"native.keyboardhide"}];
                                         }];
     return self;
 }

@@ -19,6 +19,5 @@
 
 @property (readwrite, assign) BOOL hideKeyboardAccessoryBar;
 @property (readwrite, assign) BOOL disableScroll;
-@property (readonly, assign) BOOL keyboardVisible;
 
 @end
