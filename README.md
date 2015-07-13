@@ -1,12 +1,14 @@
 ionic-keyboard-forge
 ====================
 
-Port of ionic-plugins-keyboard to trigger.io
+Port of Ionic's Cordova keyboard plugin ([ionic-plugin-keyboard](https://github.com/driftyco/ionic-plugin-keyboard)) to http://trigger.io
 
 Keyboard
 ======
 
 The `ionic-keyboard-forge` module provides functions to make interacting with the keyboard easier, and fires events to indicate that the keyboard will hide/show.
+
+If you like the functionality you can use this plugin **without** using ionic.
 
 Currently this module has not been approved by Trigger.io. To use it, you need to manage it as a private module:
 * Git clone the code
@@ -20,6 +22,10 @@ Methods
 - `forge.ionic_keyboard.hideKeyboardAccessoryBar`
 - `forge.ionic_keyboard.close`
 - `forge.ionic_keyboard.disableScroll`
+- `forge.ionic_keyboard.show`
+ 
+Properties
+-------
 - `forge.ionic_keyboard.isVisible`
 
 Events
@@ -56,7 +62,7 @@ Close the keyboard if it is open.
 Supported Platforms
 -------------------
 
-- iOS (Android coming soon)
+- iOS, Android
 
 
 Keyboard.disableScroll
@@ -72,7 +78,7 @@ Supported Platforms
 
 - iOS
 
-Keyboard.show (coming soon)
+Keyboard.show
 =================
 
 Force keyboard to be shown on Android. This typically helps if autofocus on a text element does not pop up the keyboard automatically
@@ -103,7 +109,7 @@ keyboardHeight: the height of the keyboard in pixels
 Supported Platforms
 -------------------
 
-- iOS, (Android coming soon)
+- iOS, Android
 
 
 native.keyboardhide
@@ -125,4 +131,4 @@ None
 Supported Platforms
 -------------------
 
-- iOS, (Android coming soon)
+- iOS, Android
