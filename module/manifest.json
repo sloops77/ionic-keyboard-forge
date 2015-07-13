@@ -1,7 +1,7 @@
 {
-	"description": "Ionic Keyboard Cordova Plugin port Trigger.io (for ios only)",
+	"description": "Ionic Keyboard Cordova Plugin port to Trigger.io for Android & IOS",
 	"min_platform_version": "v2.2.6",
 	"namespace": "ionic_keyboard",
 	"platform_version": "v2.2.6",
-	"version": "0.3"
+	"version": "1.01"
 }

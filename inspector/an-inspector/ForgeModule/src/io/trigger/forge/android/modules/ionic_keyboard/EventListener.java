@@ -30,7 +30,7 @@ public class EventListener extends ForgeEventListener {
 				int pixelHeightDiff = (int)(heightDiff / density);
 				if (pixelHeightDiff > 100 && pixelHeightDiff != previousHeightDiff) { // if more than 100 pixels, its probably a keyboard...
 					ForgeApp.event("setProperty", new JsonParser().parse("{name: \"forge.ionic_keyboard.isVisible\", value: true}"));
-					ForgeApp.event("fireWindowEvent", new JsonParser().parse("{eventType: \"native.keyboardshow\", keyboardHeight: " + pixelHeightDiff + ")}"));
+					ForgeApp.event("fireWindowEvent", new JsonParser().parse("{eventType: \"native.keyboardshow\", keyboardHeight: " + pixelHeightDiff + "}"));
 				}
 				else if ( pixelHeightDiff != previousHeightDiff && ( previousHeightDiff - pixelHeightDiff ) > 100 ){
 					ForgeApp.event("setProperty", new JsonParser().parse("{name: \"forge.ionic_keyboard.isVisible\", value: false}"));
