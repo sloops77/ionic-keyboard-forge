@@ -1,9 +1,9 @@
 #import "IonicKeyboard.h"
-#import "UIWebViewExtension.h"
+//#import "UIWebViewExtension.h"
 
 @implementation IonicKeyboard
 
-@synthesize hideKeyboardAccessoryBar = _hideKeyboardAccessoryBar;
+//@synthesize hideKeyboardAccessoryBar = _hideKeyboardAccessoryBar;
 @synthesize disableScroll = _disableScroll;
 //@synthesize styleDark = _styleDark;
 
@@ -24,7 +24,7 @@ static IonicKeyboard* ionicKeyboard = Nil;
     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
 
     //set defaults
-    self.hideKeyboardAccessoryBar = NO;
+//    self.hideKeyboardAccessoryBar = NO;
     self.disableScroll = NO;
     
     _keyboardShowObserver = [nc addObserverForName:UIKeyboardWillShowNotification
@@ -71,23 +71,23 @@ static IonicKeyboard* ionicKeyboard = Nil;
 }
 
 
-- (BOOL)hideKeyboardAccessoryBar {
-    return _hideKeyboardAccessoryBar;
-}
-
-- (void)setHideKeyboardAccessoryBar:(BOOL)hideKeyboardAccessoryBar {
-    if (hideKeyboardAccessoryBar == _hideKeyboardAccessoryBar) {
-        return;
-    }
-    if (hideKeyboardAccessoryBar) {
-        _webView.hackishlyHidesInputAccessoryView = YES;
-    }
-    else {
-        _webView.hackishlyHidesInputAccessoryView = NO;
-    }
-
-    _hideKeyboardAccessoryBar = hideKeyboardAccessoryBar;
-}
+//- (BOOL)hideKeyboardAccessoryBar {
+//    return _hideKeyboardAccessoryBar;
+//}
+//
+//- (void)setHideKeyboardAccessoryBar:(BOOL)hideKeyboardAccessoryBar {
+//    if (hideKeyboardAccessoryBar == _hideKeyboardAccessoryBar) {
+//        return;
+//    }
+//    if (hideKeyboardAccessoryBar) {
+//        _webView.hackishlyHidesInputAccessoryView = YES;
+//    }
+//    else {
+//        _webView.hackishlyHidesInputAccessoryView = NO;
+//    }
+//
+//    _hideKeyboardAccessoryBar = hideKeyboardAccessoryBar;
+//}
 
 /* ------------------------------------------------------------- */
 

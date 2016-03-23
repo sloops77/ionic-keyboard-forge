@@ -19,11 +19,13 @@ Currently this module has not been approved by Trigger.io. To use it, you need t
 Methods
 -------
 
-- `forge.ionic_keyboard.hideKeyboardAccessoryBar`
+- ~~`forge.ionic_keyboard.hideKeyboardAccessoryBar`~~ *
 - `forge.ionic_keyboard.close`
 - `forge.ionic_keyboard.disableScroll`
 - `forge.ionic_keyboard.show`
  
+ * `hideKeyboardAccessoryBar()` is removed for now because it started causing apps to be rejected from the App Store. More information, below.
+
 Properties
 -------
 - `forge.ionic_keyboard.isVisible`
@@ -38,8 +40,12 @@ These events are fired on the window (the module transparently forwards events s
 - native.keyboardhide
 
 
-Keyboard.hideKeyboardAccessoryBar
+~~Keyboard.hideKeyboardAccessoryBar~~
 =================
+
+**NOTE: This has beeb removed for now because it started causing apps to be rejected from the App Store.** For details on why this was done, [see here](https://github.com/driftyco/ionic-plugin-keyboard/issues/179).
+
+
 
 Hide the keyboard accessory bar with the next, previous and done buttons. This offers similar functionality to damn_you_form_assist module
 

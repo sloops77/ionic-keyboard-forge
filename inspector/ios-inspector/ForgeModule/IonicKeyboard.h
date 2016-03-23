@@ -17,7 +17,7 @@
 
 -(IonicKeyboard*)initWithWebView:(UIWebView*) theWebView AndViewController:(UIViewController*) theViewController;
 
-@property (readwrite, assign) BOOL hideKeyboardAccessoryBar;
+//@property (readwrite, assign) BOOL hideKeyboardAccessoryBar;
 @property (readwrite, assign) BOOL disableScroll;
 
 @end
