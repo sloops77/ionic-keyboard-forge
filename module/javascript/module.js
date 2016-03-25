@@ -1,7 +1,8 @@
 // Expose the native API to javascript
 forge.ionic_keyboard = {
     hideKeyboardAccessoryBar: function(hide, success, error) {
-        forge.internal.call('ionic_keyboard.hideKeyboardAccessoryBar', {val: hide}, success, error);
+        // forge.internal.call('ionic_keyboard.hideKeyboardAccessoryBar', {val: hide}, success, error);
+        console.warn('hideKeyboardAccessoryBar has been removed until a method is found that doesn\'t get rejected from the App Store.');
     },
 
     close: function(success, error) {

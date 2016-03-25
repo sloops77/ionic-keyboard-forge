@@ -10,11 +10,11 @@
     [task success:@"Native scroll changed"];
 }
 
-+ (void) hideKeyboardAccessoryBar:(ForgeTask*)task val:(NSNumber *)val {
-    IonicKeyboard *ionicKeyboard = [IonicKeyboard getIonicKeyboardWithWebView:(UIWebView *) [IonicForgeUtil getView] AndViewController:[[ForgeApp sharedApp] viewController]];
-    ionicKeyboard.hideKeyboardAccessoryBar = [val boolValue];
-    [task success:@"Keyboard accessory bar changed"];
-}
+//+ (void) hideKeyboardAccessoryBar:(ForgeTask*)task val:(NSNumber *)val {
+//    IonicKeyboard *ionicKeyboard = [IonicKeyboard getIonicKeyboardWithWebView:(UIWebView *) [IonicForgeUtil getView] AndViewController:[[ForgeApp sharedApp] viewController]];
+//    ionicKeyboard.hideKeyboardAccessoryBar = [val boolValue];
+//    [task success:@"Keyboard accessory bar changed"];
+//}
 
 + (void)close:(ForgeTask*)task {
     [[IonicForgeUtil getView] endEditing:YES];
